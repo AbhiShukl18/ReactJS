@@ -6,9 +6,12 @@ import Login from './Component/Login';
 import Register from './Component/Register';
 import Mens from './Component/Mens';
 import Profile from './Component/Profile';
+import UseState from './usestate 25may/UseState';
+import NotFound from './notfound';
 
 
-function App() {
+
+function App() {  
   return (
     <div className="App">
       <Routes>
@@ -17,9 +20,10 @@ function App() {
         <Route path= "/register" element={<Register />} />
         <Route path= "/mens" element={<Mens />} />
         <Route path="/profile" element={<Profile />} />
-        
+        <Route path="/use-State" element= {< UseState />}/>
+        <Route path="*" element={<NotFound/>}/>
         </Routes>
-        </div>
+        </div>  
   );
   }
 
