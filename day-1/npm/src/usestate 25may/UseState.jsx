@@ -33,14 +33,14 @@ function UseState(){
     }
 
     function Decrement2(){
-        if(counter2>1){
+        if(counter2>10){
             setcounter2((previousvalue)=>previousvalue-1)
     }
     
     }
     function Reset2(){
 
-        setcounter2(1);
+        setcounter2(10);
     }
 
     
