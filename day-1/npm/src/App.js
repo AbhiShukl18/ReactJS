@@ -10,6 +10,7 @@ import UseState from './usestate 25may/UseState';
 import NotFound from './notfound';
 import UseEffect from './usestate 25may/UseEffect';
 import UseEffect2 from './usestate 25may/UseEffect2';
+import UseEffect3 from './usestate 25may/UseEffect3';
 
 
 
@@ -26,6 +27,7 @@ function App() {
         <Route path="/use-State" element= {< UseState />}/>
         <Route path="/use-effect" element={< UseEffect/>} />
         <Route path="/use-effect2" element={< UseEffect2/>} />
+        <Route path="/use-effect3" element={< UseEffect3/>} />
 
         </Routes>
         </div>  
