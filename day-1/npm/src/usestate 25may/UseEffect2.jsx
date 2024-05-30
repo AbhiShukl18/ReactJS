@@ -1,4 +1,4 @@
-//Single dependecies
+//Empty dependecies
 // useEffect(()=>{code }, []);
 
 import { useEffect, useState } from "react";

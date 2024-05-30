@@ -1,3 +1,6 @@
+// single and Multiple dependecies
+//useEffect(()=>{code }, [counter1, counter2, counter3....so on]);
+
 import { useEffect, useState } from "react";
 
 function UseEffect3(){
