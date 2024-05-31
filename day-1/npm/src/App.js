@@ -11,6 +11,8 @@ import NotFound from './notfound';
 import UseEffect from './usestate 25may/UseEffect';
 import UseEffect2 from './usestate 25may/UseEffect2';
 import UseEffect3 from './usestate 25may/UseEffect3';
+import Routing from './usestate 25may/Routing';
+import UserDetails from './Component/UserDetails';
 
 
 
@@ -28,7 +30,8 @@ function App() {
         <Route path="/use-effect" element={< UseEffect/>} />
         <Route path="/use-effect2" element={< UseEffect2/>} />
         <Route path="/use-effect3" element={< UseEffect3/>} />
-
+        <Route path="/use-navigate" element= {< Routing/>} /> 
+        <Route path="/user/:username" element={< UserDetails/>} />
         </Routes>
         </div>  
   );
