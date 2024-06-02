@@ -35,9 +35,9 @@ useEffect(()=>{
                     <img src={prod.image}/>
                     <div id="content">
                     <p>Title: {prod.title} </p>
-                    <p>Amount:{prod.price} </p>
-                    <p>Id:{prod.id} </p>
-                    <p>Rating: {prod.rating.rate} *</p>
+                    <p>Amount:  ₹{prod.price} </p>
+                    <p>Id: {prod.id} </p>
+                    <p>Rating: {prod.rating.rate} ★</p>
                     <p>Count: {prod.rating.count} </p>
                     <button>Add to Cart</button>
                     </div>
