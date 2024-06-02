@@ -13,6 +13,9 @@ function Home(){
         <p><button onClick={()=> router("/Use-Effect2")}>Go to UseEffect2 page</button></p>
         <p><button onClick={()=> router("/Use-Effect3")}>Go to UseEffect3 page</button></p>
         <p><button onClick={()=> router("/use-navigate")}>Go to Navigate page</button></p>
+        <p><button onClick={()=> router("/mapping")}>Go to Mapping page</button></p>
+        <p><button onClick={()=> router("/all-products")}>Go to All products page</button></p>
+
 
     </div>;
    

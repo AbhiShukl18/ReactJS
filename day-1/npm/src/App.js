@@ -14,6 +14,7 @@ import UseEffect3 from './usestate 25may/UseEffect3';
 import Routing from './usestate 25may/Routing';
 import UserDetails from './Component/UserDetails';
 import Mapping from './usestate 25may/Mapping';
+import AllProducts from './usestate 25may/AllProducts';
 
 
 
@@ -34,6 +35,7 @@ function App() {
         <Route path="/use-navigate" element= {< Routing/>} /> 
         <Route path="/user/:username" element={< UserDetails/>} />
         <Route path="/mapping" element={< Mapping students={["Abhi", "Rudra", "Shiv"]} />} />
+        <Route path="/all-products" element={< AllProducts/>} />
 
         </Routes>
         </div>  
