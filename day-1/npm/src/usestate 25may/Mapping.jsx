@@ -7,7 +7,7 @@ function Mapping({students}){
             <ul>
            {students.map((stud) =>(
                <li> <h3>{stud} </h3></li>
-            ))}; 
+            ))} 
             </ul>
         </div>
     </div>
