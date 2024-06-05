@@ -13,8 +13,8 @@ function StyledComponents(){
     return (
 
         <div>
-                    <p>StyledComponents</p>
-                    <MyAnotherFontElement>StyledComponents</MyAnotherFontElement>        
+                    <p>StyledComponents- THIS IS Simple statement</p>
+                    <MyAnotherFontElement>StyledComponents- THis is styled by Style component</MyAnotherFontElement>        
         </div>
     );
 }
