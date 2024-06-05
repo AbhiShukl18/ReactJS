@@ -15,6 +15,9 @@ import Routing from './usestate 25may/Routing';
 import UserDetails from './Component/UserDetails';
 import Mapping from './usestate 25may/Mapping';
 import AllProducts from './usestate 25may/AllProducts';
+import FunctionProp from './usestate 25may/FunctionProp';
+import StyledComponents from './usestate 25may/StyledComponents';
+import InlineStyling from './usestate 25may/InlineStyling';
 
 
 
@@ -36,6 +39,9 @@ function App() {
         <Route path="/user/:username" element={< UserDetails/>} />
         <Route path="/mapping" element={< Mapping students={["Abhi", "Rudra", "Shiv"]} />} />
         <Route path="/all-products" element={< AllProducts/>} />
+        <Route path="/function-props" element={< FunctionProp/>} />
+        <Route path="/styled-component" element={< StyledComponents/>} />
+        <Route path="/inline-style" element={< InlineStyling/>} />
 
         </Routes>
         </div>  
