@@ -18,6 +18,7 @@ import AllProducts from './usestate 25may/AllProducts';
 import FunctionProp from './usestate 25may/FunctionProp';
 import StyledComponents from './usestate 25may/StyledComponents';
 import InlineStyling from './usestate 25may/InlineStyling';
+import Todo from './Component/Todo';
 
 
 
@@ -42,6 +43,7 @@ function App() {
         <Route path="/function-props" element={< FunctionProp/>} />
         <Route path="/styled-component" element={< StyledComponents/>} />
         <Route path="/inline-style" element={< InlineStyling/>} />
+        <Route path="/todo" element={< Todo/>} />
 
         </Routes>
         </div>  

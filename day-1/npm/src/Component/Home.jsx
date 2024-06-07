@@ -18,6 +18,8 @@ function Home(){
         <p><button onClick={()=> router("/function-props")}>Go to Function-props page</button></p>
         <p><button onClick={()=> router("/styled-component")}>Go to styled-components page</button></p>
         <p><button onClick={()=> router("/inline-style")}>Go to inline-styling page</button></p>
+        <p><button onClick={()=> router("/todo")}>Go to Todo page</button></p>
+
 
 
     </div>;
