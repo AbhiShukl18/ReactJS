@@ -12,7 +12,11 @@ const Todo = () => {
     setTodo("");
   }
   function deleteTodo(index) {
-    alert("are u sure?")
+    alert("Are u sure want to delete?")
+    const newarray=[...allTodos];
+    newarray.splice(index,1);
+    setAllTodos(newarray);
+
   }
   return (
     <div>
