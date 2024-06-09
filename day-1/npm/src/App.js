@@ -19,7 +19,8 @@ import FunctionProp from './usestate 25may/FunctionProp';
 import StyledComponents from './usestate 25may/StyledComponents';
 import InlineStyling from './usestate 25may/InlineStyling';
 import Todo from './Component/Todo';
-
+import ChildComponent from './usestate 25may/ChildComponent';
+import ContactForm from './usestate 25may/Contactform';
 
 
 function App() {  
@@ -44,6 +45,8 @@ function App() {
         <Route path="/styled-component" element={< StyledComponents/>} />
         <Route path="/inline-style" element={< InlineStyling/>} />
         <Route path="/todo" element={< Todo/>} />
+        <Route path="/childComponent" element={< ChildComponent/>} />
+        <Route path="/contactform" element={< ContactForm/>} />
 
         </Routes>
         </div>  
