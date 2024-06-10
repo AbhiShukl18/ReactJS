@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {toast} from "react-hot-toast"
 import { useNavigate } from 'react-router-dom';
 
@@ -6,10 +6,12 @@ const Register = () => {
 
     const router= useNavigate();
     const[userData, setUserData]= useState({name: "", email: "", password: ""});
+    const[errors, setErrors]=useState([]);
+    const[disable, setDisable]=useState(true);
     function handlechange(event){
 
         // console.log(event.target.value, event.target.name);
-        setUserData({ ...userData, [event.target.name] : [event.target.value]});
+        setUserData({ ...userData, [event.target.name] : event.target.value});
 
     }
 
@@ -37,20 +39,59 @@ const Register = () => {
 
         }
     }
+
+    useEffect(()=>{
+
+      const errorsArray=[];
+      if(!userData.name){
+
+        errorsArray.push("Name is required");
+      }
+      if(!userData.email){
+
+        errorsArray.push("Email is required");
+      }
+      if(!userData.password){
+
+        errorsArray.push("Password is required");
+      }
+      setErrors(errorsArray);
+      console.log(errors.length, "error.length");
+      if(errorsArray.length==0){
+        setDisable(false);
+      }
+      else{
+        setDisable(true);
+      }
+    }, [userData]);
+
   return (
     <div>
       <form action="" onSubmit={handleSubmit}>
         <h1>REGISTER</h1>
         <label htmlFor="">Name: </label><br />
         <input type="text" onChange={handlechange} name="name" id="" value={userData.name} /> <br />
+        
         <label htmlFor="">Email: </label><br />
         <input type="email" onChange={handlechange} name="email" id="" value={userData.email}/> <br />
         <label htmlFor="">Password: </label><br />
         <input type="password" onChange={handlechange} name="password" id="" value={userData.password}/> <br />
-        <button>Click to Register</button>
+        {errors.length>0 && (
+
+          <div>
+            {errors.map((error, i)=> (
+
+              <p key={i}>{error}* </p>
+            ))}
+          </div>
+          
+        )}
+        <input disabled={disable} type="submit" value="REGISTER" /> <br />
+
+
       </form>
     </div>
-  )
-}
+  );
+};
 
 export default Register
