@@ -4,12 +4,16 @@ import "./allproduct.css";
 function AllProducts(){ 
 
     const [allproducts, setallproducts]=useState([]);
+    const[loader, setLoader]=useState(false);
 
 async function GetProducts(){
+    setLoader(true);
 
 try{
-    const response= await axios.get("https://fakestoreapi.com/products")
-    console.log(response);
+    const response= await axios.get("https://fakestoreapi.com/products");
+    setLoader(false);
+
+    // console.log(response);
     setallproducts(response.data);
 }
 
@@ -26,9 +30,16 @@ useEffect(()=>{
 
     return (
         <>
+         
 <link rel="stylesheet" href="allproduct.css" />
         <div>
             <h1>All Products</h1>
+         {loader ? (
+            <div>
+                <h2>Loading...</h2>
+            </div>
+          ) :
+          (
             <div class="body">
                 {allproducts.map((prod)=>(
                     <div id="box" >
@@ -40,10 +51,12 @@ useEffect(()=>{
                     <p>Rating: {prod.rating.rate} ★</p>
                     <p>Count: {prod.rating.count} </p>
                     <button>Add to Cart</button>
+                    </div> 
                     </div>
-                    </div>
-                ))};
-            </div>
+                    
+                ))}
+            
+            </div>)}
         </div>
         </>
     );

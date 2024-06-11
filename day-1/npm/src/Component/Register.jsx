@@ -19,6 +19,7 @@ const Register = () => {
         event.preventDefault();
 
         try{
+
             if(userData.name && userData.email && userData.password){
                 // toast.success("Registration Successfull. Go for Login")
                 const response= {data: {success:true, message: "Registration Successfull. Please Login now."},}; 
@@ -66,7 +67,8 @@ const Register = () => {
     }, [userData]);
 
   return (
-    <div>
+    
+    <div> 
       <form action="" onSubmit={handleSubmit}>
         <h1>REGISTER</h1>
         <label htmlFor="">Name: </label><br />
