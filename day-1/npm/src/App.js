@@ -21,6 +21,7 @@ import InlineStyling from './usestate 25may/InlineStyling';
 import Todo from './Component/Todo';
 import ChildComponent from './usestate 25may/ChildComponent';
 import ContactForm from './usestate 25may/Contactform';
+import WeatherWeb from './usestate 25may/WeatherWeb';
 
 
 function App() {  
@@ -47,6 +48,8 @@ function App() {
         <Route path="/todo" element={< Todo/>} />
         <Route path="/childComponent" element={< ChildComponent/>} />
         <Route path="/contactform" element={< ContactForm/>} />
+        <Route path="/weatherweb" element={< WeatherWeb/>} />
+
 
         </Routes>
         </div>  
