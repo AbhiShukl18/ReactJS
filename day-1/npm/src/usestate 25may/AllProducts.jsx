@@ -10,7 +10,7 @@ async function GetProducts(){
     setLoader(true);
 
 try{
-    const response= await axios.get("https://fakest oreapi.com/products");
+    const response= await axios.get("https://fakestoreapi.com/products");
     setLoader(false);
 
     // console.log(response);
