@@ -1,15 +1,17 @@
-// src/components/Weather.js
 
 import React, { useState } from "react";
 import axios from "axios";
 import "./weather.css";
+import toast from "react-hot-toast";
 
 function WeatherWeb() {
   const [location, setLocation] = useState("");
   const [weather, setWeather] = useState(null);
   const [error, setError] = useState(null);
+  const[loader, setLoader]=useState(false);
 
   const getWeather = async () => {
+    setLoader(true);
     const options = {
       method: "GET",
       url: "https://yahoo-weather5.p.rapidapi.com/weather",
@@ -26,6 +28,8 @@ function WeatherWeb() {
 
     try {
       const response = await axios.request(options);
+      setLoader(false);
+
       console.log(response.data);
 
       setWeather(response.data);
@@ -53,7 +57,7 @@ function WeatherWeb() {
           type="text"
           value={location}
           onChange={(e) => setLocation(e.target.value)}
-          placeholder="Enter city"
+          placeholder="Enter city here"
           required
         />
         <button type="submit">Get Forecast</button>
