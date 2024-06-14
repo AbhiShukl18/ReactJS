@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import axios from "axios";
+import "./weather.css";
 
 function WeatherWeb() {
   const [location, setLocation] = useState("");
@@ -42,7 +43,10 @@ function WeatherWeb() {
   };
 
   return (
-    <div className="container">
+    <>
+    <link rel="stylesheet" href="weather.css" />
+    <div className="body">
+      <div className="input">
       <h1>Weather Forecast</h1>
       <form onSubmit={handleSubmit}>
         <input
@@ -53,7 +57,7 @@ function WeatherWeb() {
           required
         />
         <button type="submit">Get Forecast</button>
-      </form>
+      </form></div>
       {error && <p>{error}</p>}
       {weather && (
         <div>
@@ -65,6 +69,7 @@ function WeatherWeb() {
         </div>
       )}
     </div>
+    </>
   );
 }
 
