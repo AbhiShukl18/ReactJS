@@ -22,9 +22,11 @@ import Todo from './Component/Todo';
 import ChildComponent from './usestate 25may/ChildComponent';
 import ContactForm from './usestate 25may/Contactform';
 import WeatherWeb from './Component/Weather/WeatherWeb';
+import Reducer from './usestate 25may/Reducer';
 
 
 function App() {  
+
   return (
     <div className="App">
       <Routes>
@@ -49,6 +51,7 @@ function App() {
         <Route path="/childComponent" element={< ChildComponent/>} />
         <Route path="/contactform" element={< ContactForm/>} />
         <Route path="/weather" element={< WeatherWeb/>} />
+        <Route path="/reducer" element={< Reducer/>} />
 
         </Routes>
         </div>  

@@ -1,9 +1,12 @@
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { authcontext } from "../Context/authcontext";
 
 function Home(){
+    const{state}= useContext(authcontext)
     const router=useNavigate();
     return <div> 
-        <h1>Home</h1>
+        <h1>Home- Hi!! {state?.user?.name} </h1>
         <p><button onClick={()=> router("/Login")}>Go to Login page</button></p>
         <p><button onClick={()=> router("/Register")}>Go to Register page</button></p>
         <p><button onClick={()=> router("/Mens")}>Go to Mens page</button></p>
@@ -19,6 +22,7 @@ function Home(){
         <p><button onClick={()=> router("/styled-component")}>Go to styled-components page</button></p>
         <p><button onClick={()=> router("/inline-style")}>Go to inline-styling page</button></p>
         <p><button onClick={()=> router("/todo")}>Go to Todo page</button></p>
+        <p><button onClick={()=> router("/reducer")}>Go to Reducer page</button></p>
 
 
 

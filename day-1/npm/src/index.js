@@ -5,9 +5,11 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter} from "react-router-dom"
 import {Toaster} from "react-hot-toast"
+import MyContextProvider from './Context/authcontext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+  <MyContextProvider>
   <BrowserRouter> 
 <Toaster
   position="top-center"
@@ -36,6 +38,7 @@ root.render(
 />
     <App />
     </BrowserRouter>
+    </MyContextProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function

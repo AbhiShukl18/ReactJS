@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { authcontext } from "../Context/authcontext";
 
 const Todo = () => {
+  const{state}=useContext(authcontext)
   const [todo, setTodo] = useState("");   //single todo
   const [allTodos, setAllTodos] = useState([]);  // store todo in array
   console.log(allTodos, "allTodos");
@@ -20,7 +22,7 @@ const Todo = () => {
   }
   return (
     <div>
-      <h1>Todo</h1>
+      <h1>Todo : {state?.user?.name}</h1>
       <input value={todo} onChange={handleChange} />
       <br />
       <button onClick={handleSubmit}>Submit Todo.</button>
