@@ -17,7 +17,7 @@ function Home(){
           
             }}> 
             
-            <h1>Home- Hi!! {state?.user?.name} </h1>
+            <h1>Home- Hi!!{state?.user?.name} </h1>
             <button style={{marginLeft: "90%",
                 fontSize:"14px",
                 width: "150px",
@@ -32,7 +32,7 @@ function Home(){
       >
         Switch to {themeState?.theme === "dark" ? "light" : "dark"} Mode
       </button>
-            <p><button onClick={()=> router("/Login")}>Go to Login page</button></p>
+            {/* <p><button onClick={()=> router("/Login")}>Go to Login page</button></p>
             <p><button onClick={()=> router("/Register")}>Go to Register page</button></p>
             <p><button onClick={()=> router("/Mens")}>Go to Mens page</button></p>
             <p><button onClick={()=> router("/Profile")}>Go to Profile page</button></p>
@@ -47,9 +47,9 @@ function Home(){
             <p><button onClick={()=> router("/styled-component")}>Go to styled-components page</button></p>
             <p><button onClick={()=> router("/inline-style")}>Go to inline-styling page</button></p>
             <p><button onClick={()=> router("/todo")}>Go to Todo page</button></p>
-            <p><button onClick={()=> router("/reducer")}>Go to Reducer page</button></p>
+            <p><button onClick={()=> router("/reducer")}>Go to Reducer page</button></p> */}
          
-      <br /><br /> <br /><br /><br /><br /><br /> <br /><br /><br /><br /><br /><br />
+      <br /><br /> <br /><br /><br /><br /><br /> <br /><br /><br /><br /><br /><br /><br /><br /> <br /><br /><br /><br /><br /> <br /><br /><br /><br /><br /><br /><br /><br /><br /> <br />
           
     
     </div>
