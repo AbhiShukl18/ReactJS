@@ -23,6 +23,7 @@ import ChildComponent from './usestate 25may/ChildComponent';
 import ContactForm from './usestate 25may/Contactform';
 import WeatherWeb from './Component/Weather/WeatherWeb';
 import Reducer from './usestate 25may/Reducer';
+import ReduxCounter from './Component/ReduxCounter';
 
 
 function App() {  
@@ -52,6 +53,7 @@ function App() {
         <Route path="/contactform" element={< ContactForm/>} />
         <Route path="/weather" element={< WeatherWeb/>} />
         <Route path="/reducer" element={< Reducer/>} />
+        <Route path="/redux-counter" element={< ReduxCounter/>} />
 
         </Routes>
         </div>  

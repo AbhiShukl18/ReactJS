@@ -44,8 +44,13 @@ function WeatherWeb() {
     getWeather();
   };
 
+  if(loader){
+
+    return <p>Loading...</p>
+  }
   return (
-    
+
+   
     <>
     
       <link rel="stylesheet" href="weather.css" />
