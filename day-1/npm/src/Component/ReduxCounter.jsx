@@ -2,7 +2,7 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { decrement, increment } from '../Redux/actions';
 
-const ReduxCounter = () => {
+const  ReduxCounter = () => {
 
     const dispatch=useDispatch();                               // creating a instance of useDispath and assigning into dispatch variable
     const counter= useSelector((state)=>state.counter);           // creating a instance of useSelector and assigning into counter variable where state is initial state of counter i.e 0
