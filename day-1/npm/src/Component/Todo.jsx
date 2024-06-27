@@ -17,7 +17,7 @@ const Todo = () => {
     alert("Are u sure want to delete?")
     const newarray=[...allTodos];
     newarray.splice(index,1);
-    setAllTodos(newarray);
+    setAllTodos(newarray);  
 
   }
   return (

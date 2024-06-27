@@ -24,6 +24,7 @@ import ContactForm from './usestate 25may/Contactform';
 import WeatherWeb from './Component/Weather/WeatherWeb';
 import Reducer from './usestate 25may/Reducer';
 import ReduxCounter from './Component/ReduxCounter';
+import Reduxtodo from './ReduxTodo/Reduxtodo';
 
 
 function App() {  
@@ -54,6 +55,7 @@ function App() {
         <Route path="/weather" element={< WeatherWeb/>} />
         <Route path="/reducer" element={< Reducer/>} />
         <Route path="/redux-counter" element={< ReduxCounter/>} />
+        <Route path="/redux-todo" element={< Reduxtodo/>} />
 
         </Routes>
         </div>  

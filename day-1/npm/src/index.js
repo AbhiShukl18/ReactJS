@@ -8,7 +8,8 @@ import {Toaster} from "react-hot-toast"
 import MyContextProvider from './Context/authcontext';
 import ThemeContextProvider from './Context/themecontext';
 import {Provider} from "react-redux";
-import store from "./Redux/store";
+import Store1 from './ReduxTodo/Store';
+import store from './Redux/store';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -42,9 +43,13 @@ root.render(
     },
   }}
 />
-  <Provider store={store}>
+  {/* <Provider store={store}> */}
+  <Provider Store1={Store1}>
+
     <App />
     </Provider>
+
+    {/* </Provider> */}
     </BrowserRouter>
     </MyContextProvider>
     </ThemeContextProvider>
