@@ -25,6 +25,9 @@ import WeatherWeb from './Component/Weather/WeatherWeb';
 import Reducer from './usestate 25may/Reducer';
 import ReduxCounter from './Component/ReduxCounter';
 import Reduxtodo from './ReduxTodo/Reduxtodo';
+import CallbackComponent from './29June/CallbackComponent';
+import UseCallbackComponent from './29June/UseCallbackComponent';
+import UseMemoComponent from './29June/UseMemoComponent';
 
 
 function App() {  
@@ -56,6 +59,9 @@ function App() {
         <Route path="/reducer" element={< Reducer/>} />
         <Route path="/redux-counter" element={< ReduxCounter/>} />
         <Route path="/redux-todo" element={< Reduxtodo/>} />
+        <Route path="/callback" element={< CallbackComponent/>} />
+        <Route path="/use-callback" element={< UseCallbackComponent/>} />
+        <Route path="/use-memo" element={< UseMemoComponent/>} />
 
         </Routes>
         </div>  

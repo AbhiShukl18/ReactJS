@@ -1,0 +1,20 @@
+useCallback hook:- 
+it lets us to cache a fnctn definition b/w re-renders,  its usage are:-
+
+skips re-rendering of components, updating state from a memorized(cache) callback, 
+
+Syntax:- const cachedfn= useCallback(fnctn, dependencies)
+
+
+useMemo hook:-
+ it lets us to cache the result of a calculation b/w re-renders, its usage are:-
+
+it skips expensive(time taking) calculation, skips re-rendering components, it memorize a dependency of another hook, also it memorize a fnctn
+
+Syntax:- const cachedvalue= useMemo(calculatedvalue, dependencies)
+
+
+Memo:- 
+lets u skip re-rendering a component when it props are unchamged, it means memo checks whether the props are different or similar, if different then it re-render the code otherwise passes the same value which is executed earlier by using state, it saves lots of time.
+
+Syntax:- const MemoComponent= memo(somecomponent, arepropsEqual??)

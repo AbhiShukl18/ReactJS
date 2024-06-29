@@ -1,6 +1,6 @@
-import {createStore} from "redux";                      // creating a store in store.js file
-import todoReducer from "./Reducer";                
+// import {createStore} from "redux";                      // creating a store in store.js file
+// import todoReducer from "./Reducer";                
 
-const Store1= createStore(todoReducer);                   // assigning counterreducer into store variable which is cmoing from create store
+// const Store1= createStore(todoReducer);                   // assigning counterreducer into store variable which is cmoing from create store
 
-export default Store1;
+// export default Store1;
