@@ -1,0 +1,10 @@
+useRef Hook-
+
+ It lets us to reference a value which is not needed for rendering(page reload by useState, useEffect).
+ 
+ It returns a object which has only one key i.e. 'current', so if we initialize a useRef as const count=useRef(0) then it looks like below:-
+      'count= {current: 0}' where current is a key and 0 is value and to access the value we write 'count.current'
+
+It is also to be use to store the previous state value by using , useState, useEffect and obiously useRef
+
+Updating the Reference does not trigger the re-rendering while updating the state the component re-renders. so it means if we update useRef its value is available then only while updating the useState it renders the page then update the value

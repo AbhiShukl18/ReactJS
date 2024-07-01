@@ -28,6 +28,8 @@ import Reduxtodo from './ReduxTodo/Reduxtodo';
 import CallbackComponent from './29June/CallbackComponent';
 import UseCallbackComponent from './29June/UseCallbackComponent';
 import UseMemoComponent from './29June/UseMemoComponent';
+import UseRefComponent from './30June/UseRefComponent';
+import UseRef2Component from './30June/UseRef2Component';
 
 
 function App() {  
@@ -62,6 +64,9 @@ function App() {
         <Route path="/callback" element={< CallbackComponent/>} />
         <Route path="/use-callback" element={< UseCallbackComponent/>} />
         <Route path="/use-memo" element={< UseMemoComponent/>} />
+        <Route path="/use-ref" element={< UseRefComponent/>} />
+        <Route path="/use-ref2" element={< UseRef2Component/>} />
+
 
         </Routes>
         </div>  
