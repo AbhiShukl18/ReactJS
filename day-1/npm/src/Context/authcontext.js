@@ -30,6 +30,8 @@ function MyContextProvider({ children }) {
       toast.error(error?.response?.data?.error);
     }
   }
+
+  
   useEffect(() => {
     getCurrentUser();
     // alert("Page reloaded.");

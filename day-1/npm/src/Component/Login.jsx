@@ -47,7 +47,11 @@ const Login = () => {
       } else {
         toast.error("All fields are mandatory");
       }
-    } catch (error) {}
+    } catch (error) {
+
+      console.log(error,"loginerror")
+      toast.error(error?.response?.data?.error)
+    }
   }
 
   useEffect(() => {

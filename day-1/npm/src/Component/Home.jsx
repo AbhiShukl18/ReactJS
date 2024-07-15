@@ -2,6 +2,8 @@ import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { authcontext } from "../Context/authcontext";
 import {themeContext} from "../Context/themecontext";
+import Api from "../axiosConfig";
+import toast from "react-hot-toast";
 
 function Home(){
     const{state}= useContext(authcontext);  
@@ -9,11 +11,20 @@ function Home(){
     
     const router=useNavigate();
 
-    function handleLogout(){
-      dispatch({ type: "LOGOUT", payload: null });
+    async function logout(){
 
-
+      try{
+  
+        const response= await Api.get("/auth/logout")
+        if (response.data.success) {
+          dispatch({ type: "LOGOUT" });
+        }
+      }
+      catch (error) {
+        toast.error(error?.response?.data?.error);
+      }
     }
+  
     return(
 
      <div style=
@@ -25,7 +36,7 @@ function Home(){
             }}> 
             
             <h1>Home- Hi!!  {state?.user?.name} 
-              <button onClick={handleLogout}>LOGOUT</button>
+              <button onClick={logout}>LOGOUT</button>
             </h1>
             <button style={{marginLeft: "90%",
                 fontSize:"14px",
