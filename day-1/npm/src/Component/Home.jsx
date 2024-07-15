@@ -6,7 +6,14 @@ import {themeContext} from "../Context/themecontext";
 function Home(){
     const{state}= useContext(authcontext);  
     const{themeState, dispatch}=useContext(themeContext);
+    
     const router=useNavigate();
+
+    function handleLogout(){
+      dispatch({ type: "LOGOUT", payload: null });
+
+
+    }
     return(
 
      <div style=
@@ -17,7 +24,9 @@ function Home(){
           
             }}> 
             
-            <h1>Home- Hi!!{state?.user?.name} </h1>
+            <h1>Home- Hi!!  {state?.user?.name} 
+              <button onClick={handleLogout}>LOGOUT</button>
+            </h1>
             <button style={{marginLeft: "90%",
                 fontSize:"14px",
                 width: "150px",

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import {toast} from "react-hot-toast"
 import { useNavigate } from 'react-router-dom';
+import Api from "../axiosConfig";
+
 
 const Register = () => {
 
@@ -22,7 +24,7 @@ const Register = () => {
 
             if(userData.name && userData.email && userData.password){
                 // toast.success("Registration Successfull. Go for Login")
-                const response= {data: {success:true, message: "Registration Successfull. Please Login now."},}; 
+                const response= await Api.post("/auth/register", {userData}); 
                 if(response.data.success){
                     setUserData({name:"", email: "", password: ""});
                     

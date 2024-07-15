@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { authcontext } from "../Context/authcontext";
+import Api from "../axiosConfig";
 
 const Login = () => {
   const { state, dispatch } = useContext(authcontext);
@@ -11,7 +12,7 @@ const Login = () => {
   const [disable, setDisable] = useState(true);
   console.log(errors, "errors");
   console.log(userData, "userdata");
-  function handlechange(event) {
+ function handlechange(event) {
     // console.log(event.target.value, event.target.name);
     setUserData({ ...userData, [event.target.name]: event.target.value });
   }
@@ -21,14 +22,15 @@ const Login = () => {
 
     try {
       if (userData.email && userData.password) {
+        const response=await Api.post("/auth/login", {userData})
         // toast.success("Registration Successfull. Go for Login")
-        const response = {
-          data: {
-            success: true,
-            message: "LOGIN Successfull.",
-            userData: { name: "Abhi" },
-          },
-        };
+        // const response = {
+        //   data: {
+        //     success: true,
+        //     message: "LOGIN Successfull.",
+        //     userData: { name: "Abhi" },
+        //   },
+        // };
 
         if (response.data.success) {
           
@@ -37,6 +39,10 @@ const Login = () => {
           router("/");
           toast.success(response.data.message);
 
+        }
+        else {
+          toast.error(response?.data?.error)
+          // console.log(response.data.error, "error")
         }
       } else {
         toast.error("All fields are mandatory");
