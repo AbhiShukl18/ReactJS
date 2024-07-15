@@ -31,6 +31,10 @@ const Register = () => {
                     toast.success(response.data.message);
                     router("/login")
                 }
+                else{
+
+                  toast.error(response?.data?.error)
+                }
             }
             else{
                 toast.error("All fields are mandatory")

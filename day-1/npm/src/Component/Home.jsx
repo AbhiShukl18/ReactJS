@@ -18,6 +18,7 @@ function Home(){
         const response= await Api.get("/auth/logout")
         if (response.data.success) {
           dispatch({ type: "LOGOUT" });
+          router("/login")
         }
       }
       catch (error) {
