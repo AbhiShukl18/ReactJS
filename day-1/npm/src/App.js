@@ -30,6 +30,7 @@ import UseCallbackComponent from './29June/UseCallbackComponent';
 import UseMemoComponent from './29June/UseMemoComponent';
 import UseRefComponent from './30June/UseRefComponent';
 import UseRef2Component from './30June/UseRef2Component';
+import Cart from './Component/Cart';
 
 
 function App() {  
@@ -66,6 +67,7 @@ function App() {
         <Route path="/use-memo" element={< UseMemoComponent/>} />
         <Route path="/use-ref" element={< UseRefComponent/>} />
         <Route path="/use-ref2" element={< UseRef2Component/>} />
+        <Route path="/cart" element={<Cart />} />
 
 
         </Routes>
