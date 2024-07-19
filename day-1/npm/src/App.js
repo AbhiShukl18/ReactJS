@@ -32,6 +32,8 @@ import UseRefComponent from './30June/UseRefComponent';
 import UseRef2Component from './30June/UseRef2Component';
 import Cart from './Component/Cart';
 import Addproduct from './Backened/Addproduct';
+import RegisterAdmin from './UserAdmin/RegisterAdmin';
+import LoginAdmin from './UserAdmin/LoginAdmin';
 
 
 function App() {  
@@ -70,6 +72,8 @@ function App() {
         <Route path="/use-ref2" element={< UseRef2Component/>} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/add-product" element={<Addproduct />} />
+        <Route path="/register-admin" element={<RegisterAdmin />} />
+        <Route path="/login-admin" element={<LoginAdmin />} />
 
 
         </Routes>
