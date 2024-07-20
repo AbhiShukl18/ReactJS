@@ -7,7 +7,7 @@ import { authcontext } from "./authContext";
 const Addproduct = () => {
   const { state, dispatch } = useContext(authcontext);
   const router = useNavigate();
-  const [productData, setproductData] = useState({ name: "", price: "",category: "", quantity: "" });
+  const [productData, setproductData] = useState({ name: "", price: "",category: "", quantity: "", image: "" });
   const [errors, setErrors] = useState([]);
   const [disable, setDisable] = useState(true);
   console.log(errors, "errors");
@@ -21,7 +21,7 @@ const Addproduct = () => {
     event.preventDefault();
 
     try {
-      if (productData.name && productData.price && productData.category && productData.quantity ) {
+      if (productData.name && productData.price && productData.category && productData.quantity && productData.image) {
         const response=await Api.post("/product/create-new-product", {productData})
         // toast.success("Registration Successfull. Go for Login")
         // const response = {
@@ -35,7 +35,7 @@ const Addproduct = () => {
         if (response.data.success) {
           
           dispatch({ type: "ADD", payload: response.data.productData });
-          setproductData({ name: "", price: "", category: "", quantity: "" });
+          setproductData({ name: "", price: "", category: "", quantity: "", image: "" });
         //   router("/");
           toast.success(response.data.message);
 
@@ -74,7 +74,7 @@ const Addproduct = () => {
 
   return (
     <div>
-      <form action="" onSubmit={handleSubmit}>
+      <form action="/add-product" onSubmit={handleSubmit}>
         <h1>Add to Cart</h1>
         <label htmlFor="">Name: </label>
         <br />
@@ -114,6 +114,16 @@ const Addproduct = () => {
           name="quantity"
           id=""
           value={productData.quantity}
+        />{" "}
+        <br />
+        <label htmlFor="">Image url: </label>
+        <br />
+        <input
+          type="url"
+          onChange={handlechange}
+          name="image"
+          id=""
+          value={productData.image}
         />{" "}
         {errors.length > 0 && (
           <div>

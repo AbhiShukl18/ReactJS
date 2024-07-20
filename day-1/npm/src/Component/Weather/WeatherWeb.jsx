@@ -55,7 +55,7 @@ function WeatherWeb() {
     
       <link rel="stylesheet" href="weather.css" />
       
-      <div className="body">
+      <div className="weather-body">
         <div className="input">
           <h1>Check Weather here...</h1>
           <form onSubmit={handleSubmit}>

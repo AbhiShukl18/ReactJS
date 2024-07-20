@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import "./allproduct.css";
+import Api from "../axiosConfig";
 function AllProducts(){ 
 
     const [allproducts, setallproducts]=useState([]);
@@ -10,11 +11,11 @@ async function GetProducts(){
     setLoader(true);
 
 try{
-    const response= await axios.get("https://fakestoreapi.com/products");
+    const response= await Api.get("/product/get-all-product");
     setLoader(false);
 
     // console.log(response);
-    setallproducts(response.data);
+    setallproducts(response.data.product);
 }
 
 catch(error){
@@ -41,15 +42,15 @@ useEffect(()=>{
           ) :
           (
             <div class="body">
-                {allproducts.map((prod)=>(
+                {allproducts?.map((prod)=>(
                     <div id="box" >
                     <img src={prod.image}/>
                     <div id="content">
-                    <p>Title: {prod.title} </p>
-                    <p>Amount:  ₹{prod.price} </p>
-                    <p>Id: {prod.id} </p>
+                    <p>Name: {prod.name} </p>
+                    <p>Price:  ₹{prod.price} </p>
+                    {/* <p>Id: {prod.id} </p>
                     <p>Rating: {prod.rating.rate} ★</p>
-                    <p>Count: {prod.rating.count} </p>
+                    <p>Count: {prod.rating.count} </p> */}
                     <button>Add to Cart</button>
                     </div> 
                     </div>

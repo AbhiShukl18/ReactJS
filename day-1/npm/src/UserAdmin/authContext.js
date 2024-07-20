@@ -20,7 +20,7 @@ export const Adminauthcontext = createContext();
 function MyAdminContextProvider({ children }) {
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  async function getCurrentAdmin() {
+  async function getCurrentUser() {
     try {
       const response = await Api.get("/admin/get-current-admin");
       if (response.data.success) {
@@ -33,7 +33,7 @@ function MyAdminContextProvider({ children }) {
 
   
   useEffect(() => {
-    getCurrentAdmin();
+    getCurrentUser();
     // alert("Page reloaded.");
     // // call another api to backend and use locally stored data.
     // retrive token from storage and send token to backend
