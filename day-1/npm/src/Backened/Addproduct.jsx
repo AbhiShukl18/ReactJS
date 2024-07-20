@@ -17,6 +17,11 @@ const Addproduct = () => {
     setproductData({ ...productData, [event.target.name]: event.target.value });
   }
 
+  function handleClick(){
+
+    router("/all-products");
+  }
+
   async function handleSubmit(event) {
     event.preventDefault();
 
@@ -54,6 +59,7 @@ const Addproduct = () => {
     }
   }
 
+  
 //   useEffect(() => {
 //     const errorsArray = [];
 
@@ -133,8 +139,10 @@ const Addproduct = () => {
           </div>
         )}
         <br /><br />
-        <input type="submit" value="ADD" /> <br />
+        <input type="submit" value="ADD" />
+        
       </form>
+      <button onClick={handleClick}>Go to All Products page</button>
     </div>
   );
 };

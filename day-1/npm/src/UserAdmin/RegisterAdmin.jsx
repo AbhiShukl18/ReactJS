@@ -55,7 +55,7 @@ const RegisterAdmin = () => {
     
     <div> 
       <form action="" onSubmit={handleSubmit}>
-        <h1>REGISTER</h1>
+        <h1>REGISTER ADMIN</h1>
         <label htmlFor="">Name: </label><br />
         <input type="text" onChange={handlechange} name="name"  value={AdminuserData.name} /> <br />
         
