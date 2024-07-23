@@ -1,92 +1,87 @@
-import React, { useContext, useEffect, useState } from "react";
-import { toast } from "react-hot-toast";
+import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { authcontext } from "../Context/authcontext";
+import toast from "react-hot-toast";
 import Api from "../axiosConfig";
+import { authcontext } from "../Context/authcontext";
 
 const LoginAdmin = () => {
   const { state, dispatch } = useContext(authcontext);
+
   const router = useNavigate();
-  const [AdminuserData, setAdminuserData] = useState({ email: "", password: "" });
-  const [errors, setErrors] = useState([]);
-  const [disable, setDisable] = useState(true);
-//   console.log(errors, "errors");
-//   console.log(userData, "userdata");
- function handlechange(event) {
+  const [adminData, setAdminData] = useState({
+    email: "",
+    password: "",
+  });
+
+  console.log(adminData, "adminData");
+  function handleChange(event) {
     // console.log(event.target.value, event.target.name);
-    setAdminuserData({ ...AdminuserData, [event.target.name]: event.target.value });
+    setAdminData({ ...adminData, [event.target.name]: event.target.value });
+    // Obj["awdiz"]
   }
 
-  async function handleSubmit(event) {
-    event.preventDefault();
-
+  async function handleSubmit(e) {
+    e.preventDefault();
+    // api call to backend
     try {
-      if (AdminuserData.email && AdminuserData.password) {
-        const response=await Api.post("/admin/login-admin", {AdminuserData})
-        // toast.success("Registration Successfull. Go for Login")
+      if (adminData.email && adminData.password) {
+        const response = await Api.post("/admin/login-admin", { adminData });
         // const response = {
         //   data: {
         //     success: true,
-        //     message: "LOGIN Successfull.",
-        //     userData: { name: "Abhi" },
+        //     message: "Login successfull.",
+        //     adminData: { name: "Awdiz" },
         //   },
         // };
-
         if (response.data.success) {
-          
-          dispatch({ type: "LOGIN", payload: response.data.AdminuserData });
-          setAdminuserData({ email: "", password: "" });
+          dispatch({ type: "LOGIN", payload: response.data.adminData });
+          // LOGIN(adminData)
+          setAdminData({
+            email: "",
+            password: "",
+          });
           router("/");
           toast.success(response.data.message);
-
-        }
-        else {
-          toast.error(response?.data?.error)
+        } else {
+          toast.error(response?.data?.error);
           // console.log(response.data.error, "error")
         }
       } else {
-        toast.error("All fields are mandatory");
+        throw Error("All fields are mandatory.");
+        // toast.error("All fields are mandatory.");
       }
     } catch (error) {
-
-      console.log(error,"loginerror")
-      toast.error(error?.response?.data?.error)
+      console.log(error, "error");
+      //   console.log(error);
+      //   error =  { data : { success : false, message : "Password is invalid."}}
+      toast.error(error?.response?.data?.error);
     }
   }
 
-  
   return (
     <div>
-      <form action="" onSubmit={handleSubmit}>
-        <h1>LOGIN ADMIN</h1>
-        <label htmlFor="">Email: </label>
+      <form onSubmit={handleSubmit}>
+        <h1>Login Admin</h1>
+        <label>Email : </label>
         <br />
         <input
           type="email"
-          onChange={handlechange}
+          onChange={handleChange}
           name="email"
-          id=""
-          value={AdminuserData.email}
-        />{" "}
+          value={adminData.email}
+        />
         <br />
-        <label htmlFor="">Password: </label>
+        <label>Password : </label>
         <br />
         <input
           type="password"
-          onChange={handlechange}
+          onChange={handleChange}
           name="password"
-          id=""
-          value={AdminuserData.password}
-        />{" "}
+          value={adminData.password}
+        />
         <br />
-        {errors.length > 0 && (
-          <div>
-            {errors.map((error, i) => (
-              <p key={i}>{error}* </p>
-            ))}
-          </div>
-        )}
-        <input type="submit" value="LOGIN" /> <br />
+        <input type="submit" value="Login" />
+        <br />
       </form>
     </div>
   );

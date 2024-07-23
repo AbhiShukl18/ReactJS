@@ -23,8 +23,8 @@ import ChildComponent from './usestate 25may/ChildComponent';
 import ContactForm from './usestate 25may/Contactform';
 import WeatherWeb from './Component/Weather/WeatherWeb';
 import Reducer from './usestate 25may/Reducer';
-import ReduxCounter from './Component/ReduxCounter';
-import Reduxtodo from './ReduxTodo/Reduxtodo';
+// import ReduxCounter from './Component/ReduxCounter';
+// import Reduxtodo from './ReduxTodo/Reduxtodo';
 import CallbackComponent from './29June/CallbackComponent';
 import UseCallbackComponent from './29June/UseCallbackComponent';
 import UseMemoComponent from './29June/UseMemoComponent';
@@ -34,12 +34,14 @@ import Cart from './Component/Cart';
 import Addproduct from './Backened/Addproduct';
 import RegisterAdmin from './UserAdmin/RegisterAdmin';
 import LoginAdmin from './UserAdmin/LoginAdmin';
+import Navbar from './Backened/Navbar';
 
 
 function App() {  
 
   return (
     <div className="App">
+      <Navbar />
       <Routes>
       <Route path="*" element={<NotFound/>}/>
         <Route path= "/" element={<Home />} />
@@ -63,8 +65,8 @@ function App() {
         <Route path="/contactform" element={< ContactForm/>} />
         <Route path="/weather" element={< WeatherWeb/>} />
         <Route path="/reducer" element={< Reducer/>} />
-        <Route path="/redux-counter" element={< ReduxCounter/>} />
-        <Route path="/redux-todo" element={< Reduxtodo/>} />
+        {/* <Route path="/redux-counter" element={< ReduxCounter/>} /> */}
+        {/* <Route path="/redux-todo" element={< Reduxtodo/>} /> */}
         <Route path="/callback" element={< CallbackComponent/>} />
         <Route path="/use-callback" element={< UseCallbackComponent/>} />
         <Route path="/use-memo" element={< UseMemoComponent/>} />

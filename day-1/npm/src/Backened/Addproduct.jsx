@@ -1,150 +1,172 @@
 import React, { useContext, useEffect, useState } from "react";
-import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 import Api from "../axiosConfig";
-import { authcontext } from "./authContext";
+import { authcontext } from "../Context/authcontext";
 
-const Addproduct = () => {
-  const { state, dispatch } = useContext(authcontext);
+const AddProduct = () => {
+  const { state } = useContext(authcontext);
+  // console.log(state, "state");
   const router = useNavigate();
-  const [productData, setproductData] = useState({ name: "", price: "",category: "", quantity: "", image: "" });
+  const [productData, setProductData] = useState({
+    name: "",
+    price: "",
+    category: "",
+    quantity: "",
+    image: "",
+  });
   const [errors, setErrors] = useState([]);
   const [disable, setDisable] = useState(true);
-  console.log(errors, "errors");
-  console.log(productData, "productData");
- function handlechange(event) {
+  // console.log(errors, "errors");
+
+  // console.log(productData, "productData");
+  function handleChange(event) {
     // console.log(event.target.value, event.target.name);
-    setproductData({ ...productData, [event.target.name]: event.target.value });
+    setProductData({ ...productData, [event.target.name]: event.target.value });
+    // Obj["awdiz"]
   }
 
-  function handleClick(){
-
-    router("/all-products");
-  }
-
-  async function handleSubmit(event) {
-    event.preventDefault();
-
+  async function handleSubmit(e) {
+    e.preventDefault();
+    // api call to backend
     try {
-      if (productData.name && productData.price && productData.category && productData.quantity && productData.image) {
-        const response=await Api.post("/product/create-new-product", {productData})
-        // toast.success("Registration Successfull. Go for Login")
+      if (
+        productData.name &&
+        productData.price &&
+        productData.category &&
+        productData.quantity &&
+        productData.image
+      ) {
+        const response = await Api.post("/product/create-new-product", {
+          productData,
+        });
         // const response = {
-        //   data: {
-        //     success: true,
-        //     message: "LOGIN Successfull.",
-        //     userData: { name: "Abhi" },
-        //   },
+        //   data: { success: true, message: "Regsiter successfull." },
         // };
-
         if (response.data.success) {
-          
-          dispatch({ type: "ADD", payload: response.data.productData });
-          setproductData({ name: "", price: "", category: "", quantity: "", image: "" });
-        //   router("/");
+          setProductData({
+            name: "",
+            price: "",
+            category: "",
+            quantity: "",
+            image: "",
+          });
+          router("/all-products");
           toast.success(response.data.message);
-
-        }
-        else {
-          toast.error(response?.data?.error)
-          // console.log(response.data.error, "error")
         }
       } else {
-        toast.error("All fields are mandatory");
+        throw Error("All fields are mandatory.");
+        // toast.error("All fields are mandatory.");
       }
     } catch (error) {
-
-    //   console.log(error,"loginerror")
-      toast.error(error?.response?.data?.error)
+      console.log(error, "error");
+      //   console.log(error);
+      //   error =  { data : { success : false, message : "Password is invalid."}}
+      toast.error(error.response.data.error);
     }
   }
 
-  
-//   useEffect(() => {
-//     const errorsArray = [];
+  useEffect(() => {
+    const errorsArray = [];
+    if (!productData.name) {
+      errorsArray.push("Name is required.");
+    }
+    if (!productData.price) {
+      errorsArray.push("Email is required.");
+    }
+    if (!productData.category) {
+      errorsArray.push("Password is required.");
+    }
+    if (!productData.quantity) {
+      errorsArray.push("Quantity is required.");
+    }
+    if (!productData.image) {
+      errorsArray.push("Image is required.");
+    }
+    setErrors(errorsArray);
+    if (errorsArray.length == 0) {
+      setDisable(false);
+    } else {
+      setDisable(true);
+    }
+  }, [productData]);
 
-//     if (!userData.email) {
-//       errorsArray.push("Email is required");
-//     }
-//     if (!userData.password) {
-//       errorsArray.push("Password is required");
-//     }
-//     setErrors(errorsArray);
-//     console.log(errors.length, "error.length");
-//     if (errorsArray.length == 0) {
-//       setDisable(false);
-//     } else {
-//       setDisable(true);
-//     }
-//   }, [userData]);
+  // useEffect(() => {
+  //   if (state?.user) {
+  //     console.log(state?.user, "state?.user in add product");
+  //     if (state?.user?.role !== "admin") {
+  //       toast.error("You are not allowred to access this page.");
+  //       router("/");
+  //     }
+  //   } else {
+  //     toast.error("Login to access page.");
+  //     router("/login");
+  //   }
+  // }, [state]);
 
   return (
+    // <AuthRedirection>
     <div>
-      <form action="/add-product" onSubmit={handleSubmit}>
-        <h1>Add to Cart</h1>
-        <label htmlFor="">Name: </label>
+      <form onSubmit={handleSubmit}>
+        <h1>Add New Product</h1>
+        <label>Name : </label>
         <br />
         <input
           type="text"
-          onChange={handlechange}
+          onChange={handleChange}
           name="name"
-          id=""
           value={productData.name}
-        />{" "}
+        />
         <br />
-        <label htmlFor="">Price: </label>
+        <label>Price : </label>
         <br />
         <input
           type="number"
-          onChange={handlechange}
+          onChange={handleChange}
           name="price"
-          id=""
           value={productData.price}
-        />{" "}
+        />
         <br />
-        <label htmlFor="">Category: </label>
+        <label>Category : </label>
         <br />
         <input
           type="text"
-          onChange={handlechange}
+          onChange={handleChange}
           name="category"
-          id=""
           value={productData.category}
-        />{" "}
+        />
         <br />
-        <label htmlFor="">Quantity: </label>
+        <label>Quantity : </label>
         <br />
         <input
           type="number"
-          onChange={handlechange}
+          onChange={handleChange}
           name="quantity"
-          id=""
           value={productData.quantity}
-        />{" "}
+        />
         <br />
-        <label htmlFor="">Image url: </label>
+        <label>Image url : </label>
         <br />
         <input
           type="url"
-          onChange={handlechange}
+          onChange={handleChange}
           name="image"
-          id=""
           value={productData.image}
-        />{" "}
+        />
+        <br />
         {errors.length > 0 && (
           <div>
             {errors.map((error, i) => (
-              <p key={i}>{error}* </p>
+              <p key={i}>{error}*</p>
             ))}
           </div>
         )}
-        <br /><br />
-        <input type="submit" value="ADD" />
-        
+        <input disabled={disable} type="submit" value="Add" />
+        <br />
       </form>
-      <button onClick={handleClick}>Go to All Products page</button>
     </div>
+    // </AuthRedirection>
   );
 };
 
-export default Addproduct;
+export default AddProduct;

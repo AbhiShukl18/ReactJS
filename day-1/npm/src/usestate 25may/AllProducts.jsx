@@ -15,7 +15,7 @@ try{
     setLoader(false);
 
     // console.log(response);
-    setallproducts(response.data.product);
+    setallproducts(response.data.products);
 }
 
 catch(error){

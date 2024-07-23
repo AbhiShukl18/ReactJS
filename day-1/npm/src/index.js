@@ -10,7 +10,7 @@ import ThemeContextProvider from './Context/themecontext';
 import {Provider} from "react-redux";
 import Store1 from './ReduxTodo/Store';
 import MyContextProvider1 from './Backened/authContext';
-import MyAdminContextProvider from './UserAdmin/authContext';
+// import MyAdminContextProvider from './UserAdmin/authContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -18,7 +18,7 @@ root.render(
   <ThemeContextProvider>
   <MyContextProvider>
     <MyContextProvider1>
-      <MyAdminContextProvider>
+      
   <BrowserRouter> 
 <Toaster
   position="top-center"
@@ -51,7 +51,6 @@ root.render(
     {/* </Provider> */}
 
     </BrowserRouter>
-    </MyAdminContextProvider>
     </MyContextProvider1>
     </MyContextProvider>
 
