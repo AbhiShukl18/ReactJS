@@ -39,6 +39,7 @@ const AddProduct = () => {
       ) {
         const response = await Api.post("/product/create-new-product", {
           productData,
+          userId:state?.user?.userId 
         });
         // const response = {
         //   data: { success: true, message: "Regsiter successfull." },
@@ -84,7 +85,7 @@ const AddProduct = () => {
       errorsArray.push("Image is required.");
     }
     setErrors(errorsArray);
-    if (errorsArray.length == 0) {
+    if (errorsArray.length === 0) {
       setDisable(false);
     } else {
       setDisable(true);

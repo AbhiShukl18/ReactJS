@@ -2,8 +2,9 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import "./allproduct.css";
 import Api from "../axiosConfig";
+import { useNavigate } from "react-router-dom";
 function AllProducts(){ 
-
+    const router=useNavigate();
     const [allproducts, setallproducts]=useState([]);
     const[loader, setLoader]=useState(false);
 
@@ -43,8 +44,8 @@ useEffect(()=>{
           (
             <div class="body">
                 {allproducts?.map((prod)=>(
-                    <div id="box" >
-                    <img src={prod.image}/>
+                    <div id="box"  >
+                    <img onClick={()=>router(`/product/${prod._id}`)} src={prod.image}/>
                     <div id="content">
                     <p>Name: {prod.name} </p>
                     <p>Price:  ₹{prod.price} </p>

@@ -35,6 +35,8 @@ import Addproduct from './Backened/Addproduct';
 import RegisterAdmin from './UserAdmin/RegisterAdmin';
 import LoginAdmin from './UserAdmin/LoginAdmin';
 import Navbar from './Backened/Navbar';
+import YourAddedProducts from './Backened/YourAddedProducts';
+import SingleProductPage from './Backened/SingleProductPage';
 
 
 function App() {  
@@ -76,6 +78,8 @@ function App() {
         <Route path="/add-product" element={<Addproduct />} />
         <Route path="/register-admin" element={<RegisterAdmin />} />
         <Route path="/login-admin" element={<LoginAdmin />} />
+        <Route path="/your-added-products" element={<YourAddedProducts   />} />
+        <Route path="/product/:id" element={<SingleProductPage   />} />
 
 
         </Routes>
